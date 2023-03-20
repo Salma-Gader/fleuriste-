@@ -1,10 +1,10 @@
 # fleuriste-
 
-##1 - Présentation de l’entreprise :
+##  1 - Présentation de l’entreprise :
 
 fleuriste est un site de vente en ligne qui propose une sélection de fleurs et de chocolats pour toutes les occasions.
 
-##.2 - Les objectifs du site :
+## 2 - Les objectifs du site :
 
 l'objectif de ce site est de proposer une expérience d'achat pratique et conviviale pour les utilisateurs qui cherchent à acheter des fleurs et des chocolats pour diverses occasions.
 
