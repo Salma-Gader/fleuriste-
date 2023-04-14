@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="/css/dashboard.css">
+        <link rel="stylesheet" href="/css/popUp.css">
         <link rel="stylesheet" href="/css/create.css">
         <link rel="stylesheet" href="/css/createCategory.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
@@ -46,5 +47,6 @@
 
         @livewireScripts
         <script src="{{url('js/dashboard.js')}}"></script>
+        <script src="{{url('js/popUp.js')}}"></script>
     </body>
 </html>

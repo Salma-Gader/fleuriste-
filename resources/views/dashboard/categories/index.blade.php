@@ -56,24 +56,32 @@
         </div>
         {{-- all products --}}
 
+
+
         <div class="row items-center me-0">
             <h1 class="col fw-bold ms-3 mt-5">Your Categories</h1>  
-            <button class="col-4 me-3 mt-5 btn btn-dark w-auto" href="" data-bs-toggle="modal"><a href="{{ url('add') }}"><b>+ </b> Add Product</a></button>
+            <button class="col-4 me-3 mt-5 btn btn-dark w-auto" href="" data-bs-toggle="modal"><a href="{{ route('categories.create') }}"><b>+ </b> Add Categorie</a></button>
         </div>
     
             <div class="col py-2">
               <div class="table-responsive">
                 <table class="table table-hover"> 
                     <tbody>
+                     @foreach ($categories as $category)
                       <tr>
-                        <td><img style="height: 8rem; width: 10rem !important;" src="" class="card-img-top"   height="30"></td>
-                        <td>ghjkkl</td>
+                        <td><img style="height: 8rem; width: 10rem !important;" src="/categories/{{$category->image}}" class="card-img-top"   height="30"></td>
+                        <td></td>
                         <span class="inline-block text-truncate" style="max-width: 15px;">
-                        <td >hjjkp</td>
+                        <td >{{$category->name}}</td>
                         </span>
-                        <td>hjkkjop^p</td>
-                        <td><a href="#" class="show-btn">show</a></td>
+                        <form  action="{{route('deletecategory',$category->id) }}" method="Post">
+                        <td><button href="/categories/{category}"><i class="bi bi-trash"></i></button></td>
+                        @csrf
+                        @method('DELETE')
+                        <td><a href="{{ route('dashboard.categories.edit',$category->id) }}" class="show-btn">edit</a></td>
+                      </form>
                       </tr>
+                      @endforeach
                     </tbody>
                   </table>
             </div>

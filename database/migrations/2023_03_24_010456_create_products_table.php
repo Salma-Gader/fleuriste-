@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('price');
+            $table->double('price');
+            $table->integer('quantity');
             $table->longText('description');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -11,10 +13,13 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('dashboard.cateogries.index');
+    public function getcategories()
+    { 
+        $categories=Category::all();
+        return view('dashboard.categories.index',compact('categories'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +28,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+
+        $categories=Category::all();
+        return view('dashboard.categories.create',compact('categories'));
     }
 
     /**
@@ -34,7 +41,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $photo = $request->file('image');
+        $file_name = rand() . '.' . $photo->getClientOriginalName();
+        $photo->move(public_path('categories'), $file_name);
+        $data = $request->only(['name','image']);
+        $data['image'] = $file_name;
+        $category = Category::create($data);
+        // Store the selected facilities for the chambre
+        
+
+               
+
     }
 
     /**
@@ -45,7 +63,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('dashboard.categories.show',compact('id'));
     }
 
     /**
@@ -56,7 +74,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('dashboard.categories.edit',compact('id'));
     }
 
     /**
@@ -66,9 +84,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCategoryRequest $request, Category $category)
     {
-        //
+        $photo = $request->file('image');
+        $file_name = rand() . '.' . $photo->getClientOriginalName();
+        $photo->move(public_path('categories'), $file_name);
+        $data = $request->only(['name']);
+        $data['image'] = $file_name;
+    
+        $category->update($data);
+
+        return redirect()->route('getcategories')->with('success','Company Has Been updated successfully');
     }
 
     /**
@@ -77,8 +103,22 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('getcategories')->with('success','Category has been deleted successfully');
+    }
+
+    public function storeCategory(StoreCategoryRequest $request)
+    {
+        $photo = $request->file('image');
+        $file_name = rand() . '.' . $photo->getClientOriginalName();
+        $photo->move(public_path('categories'), $file_name);
+        $data = $request->only(['name','image']);
+        $data['image'] = $file_name;
+        $category = Category::create($data);
+
+        return redirect()->route('getcategories')->with('success', 'Category created successfully!');
+
     }
 }

@@ -34,23 +34,25 @@
 </header>
 <!--banner section-->
 <div class="banner-title">
-    <h1 >C A T E G O R I ES</h1>
+    <h2>C A T E G O R I E S </h2>
 </div>
 
 <section class="banner">
-    <a href="{{route('products')}}">
+    @foreach($categories as $categories)
+    <a href="{{route('showByCategory',$categories->id)}}">
     <div class="banner-img">
-        <img src="/img/birthay.jpg" alt="">
-        <p class="category">Birthay</p>
+        <img src="/categories/{{$categories->image}}" alt=""style="height: 20rem; width: 30rem !important;">
+        <p class="category">{{$categories->name}}</p>
     </div>
     </a>
-    <a href="{{route('products')}}">
+    @endforeach
+    {{-- <a href="{{route('products')}}">
     <div class="banner-img">
         <img src="/img/innaversary.jpg" alt="">
         <p class="category">Anniversary</p>
     </div>
-    </a>
-    <a href="{{route('products')}}">
+    </a> --}}
+    {{-- <a href="{{route('products')}}">
     <div class="banner-img">
         <img src="/img/babyshower2.jpg" alt="">
         <p class="category">Babyshower</p>
@@ -73,12 +75,14 @@
         <img src="/img/widing.jpg" alt="">
         <p class="category">Wedding</p>
     </div>
-    </a>
+    </a> --}}
 </section>
 
-<div class="end-text">
-    <p>© late 2023 Salma Gader All Rights Reserved.</p>
- </div>
+     <!--scroll-->
+     <a href="#" class="scroll-top"><i class='bx bx-chevrons-up' style='color:#ffffff'></i></a>
+     <div class="end-text">
+        <p>© late 2023 Salma Gader All Rights Reserved.</p>
+     </div>
     <!--js link-->
     <script src="/js/landing_page.js"></script>
 </body>

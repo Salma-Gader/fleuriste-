@@ -1,0 +1,42 @@
+.container {
+    margin-top: 100px;
+}
+
+.image img {
+    width: 90%;
+}
+
+.col-md-7 h2 {
+    color: #555;
+}
+
+.price {
+    color: #B8A398;
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+#input {
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+}
+
+.cart {
+    background: #B8A398;
+    color: #ffffff;
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+@media(max-width:640px) {
+    body {
+        padding: 1rem;
+    }
+    .container {
+        text-align: center;
+    }
+}

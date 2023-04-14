@@ -11,7 +11,7 @@
             </li>
             <hr>
             <li>
-                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-dark">
+                <a href="/dashboard" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-dark">
                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
             </li>
             <hr>
@@ -21,12 +21,34 @@
             </li>
             <hr>
             <li>
-                <a href="{{ route('categories')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-dark">
-                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Categories</span></a>
+                <a href="/all-categories" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-dark">
+                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline"><!-- Add category button -->
+                        <button id="add-category-button">Add Category</button>
+                        
+                        <!-- Pop-up form -->
+                        <div class="popup-form">
+                          <form id="category-form">
+                            <h2>Add Category</h2>
+                            <label for="category-name">Name:</label>
+                            <input type="text" id="category-name" required>
+                            <label for="category-description">Description:</label>
+                            <textarea id="category-description"></textarea>
+                            <div class="buttons">
+                              <button type="submit">Add</button>
+                              <button type="button" id="cancel-button">Cancel</button>
+                            </div>
+                          </form>
+                        </div>
+                        
+                        <!-- Sidebar -->
+                        <ul id="sidebar">
+                          <!-- Categories will be added here dynamically -->
+                        </ul>
+                        </span></a>
             </li>
             <hr>
             <li>
-                <a href="{{ route('dashboard')}}" class="nav-link px-0 align-middle text-dark">
+                <a href="/dashboard" class="nav-link px-0 align-middle text-dark">
                     <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
             </li>
             <hr>
