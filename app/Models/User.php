@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Cart;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,12 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+
+    public function cartItems()
+    {
+        return $this->hasMany(Cart::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -58,4 +65,5 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
 }

@@ -28,9 +28,7 @@ Route::get('/shop', function () {
 Route::get('/choice', function () {
     return view('products');
 })->name('choice');
-Route::get('/bag', function () {
-    return view('bag');
-})->name('bag');
+
 // Route::get('/cart', function () {
 //     return view('cart');
 // })->name('cart');
@@ -75,6 +73,8 @@ Route::put('/categories/{category}', 'CategoryController@update')->name('dashboa
 Route::get('/category/{id}/products', [ProductController::class, 'showByCategory'])->name('showByCategory');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/show-products/{product}',[ProductController::class, 'show'])->name('showproducts');
+Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart.delete');
+Route::get('/bag', [CartController::class, 'show'])->name('bag');
 
 
 

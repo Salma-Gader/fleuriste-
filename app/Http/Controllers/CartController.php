@@ -30,4 +30,21 @@ class CartController extends Controller
 
         return redirect()->route('showproducts',$request->product_id)->with('success', 'Item added to cart.');
     }
+        public function delete(Request $request)
+    {
+            $cartItem = Cart::where('id', $request->id)->first();
+            if ($cartItem) {
+                $cartItem->delete();
+                return redirect()->route('bag')->with('success', 'Item removed from cart.');
+            } else {
+                return redirect()->route('bag')->with('error', 'Item not found in cart.');
+            }
+    }
+    public function show()
+    {
+        $user = Auth::user();
+        $cartItems = Cart::with('product')->where('user_id','=', $user->id)->get();
+    
+        return view('bag', compact('cartItems'));
+    }
 }

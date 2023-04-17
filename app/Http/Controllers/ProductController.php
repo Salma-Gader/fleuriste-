@@ -79,21 +79,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function update(StoreProductRequest $request, Product $product)
-    // {
-    //     $data = $request->only(['name','price','description','category_id']);
-        
-    //     if ($request->hasFile('image')) {
-    //         $photo = $request->file('image');
-    //         $file_name = rand() . '.' . $photo->getClientOriginalName();
-    //         $photo->move(public_path('products'), $file_name);
-    //         $data['image'] = $file_name;
-    //     }
-        
-    //     $product->update($data);
 
-    //     return redirect()->route('dashboard')->with('success','Product has been updated successfully');
-    // }
     public function update(StoreProductRequest $request, Product $product)
 {
     $data = $request->only(['name','price','description','category_id']);
@@ -103,10 +89,9 @@ class ProductController extends Controller
         $file_name = rand() . '.' . $photo->getClientOriginalName();
         $photo->move(public_path('products'), $file_name);
         $data['image'] = $file_name;
-        // If a new image was provided, update the 'image' attribute
+
     }
     
-    // Keep the old image if no new image was provided
     else {
         $data['image'] = $product->image;
     }
@@ -130,13 +115,11 @@ class ProductController extends Controller
     
     public function showByCategory($id)
     {
-        // Find the category by ID
+
         $category = Category::findOrFail($id);
 
-        // Get the products that belong to the category
         $productcategory = $category->products;
 
-        // Return a view with the products
         return view('products', compact('productcategory'));
     }
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/landing_page.css">
+    <link rel="stylesheet" href="/css/products.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,25 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<header>
-    <a href="#">
-        <h1 class="logo">logo</h1>
-    </a>
-    <ul class="navbar">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">PAGES</a></li>
-        <li><a href="{{route('shop')}}">SHOP</a></li>
-        <li><a href="#">PORTFOLIO</a></li>
-        <li><a href="#">NEWES</a></li>
-        <li><a href="#">CONTACT</a></li>
-    </ul>
-    <div class="h-icons">
-        <a href="#"><i class='bx bxs-shopping-bag' style='color:#ffffff'></i></a>
-        <a href="#"><i class='bx bxs-phone' style='color:#ffffff'></i></i></a>
-        <a href="#"><i class='bx bxs-heart' style='color:#ffffff'></i></a>
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </div>
-</header>
+    @include('navbar')
 <section class="products">
     <div>
         <h2>choose Your Gifts</h2>
@@ -39,7 +22,7 @@
     <div class="new-content">
         @foreach ($productcategory as $product)
         <div class="row">
-            <img src="/products/{{$product->image}}" alt="" style="height: 25erem;  !important;">
+            <img src="/products/{{$product->image}}" alt="" style="height: 25rem;  !important;">
             <h4>{{$product->name}}</h4>
             <h5>{{$product->price}}</h5>
             <div class="bbtn">
