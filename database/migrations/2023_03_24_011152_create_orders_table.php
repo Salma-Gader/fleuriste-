@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('payment_method');
             $table->string('total_price');
             $table->string('address');
-            $table->string('date');
+            $table->string('phone');
             $table->timestamps();
         });
     }

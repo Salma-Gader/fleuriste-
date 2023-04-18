@@ -44,7 +44,22 @@ class CartController extends Controller
     {
         $user = Auth::user();
         $cartItems = Cart::with('product')->where('user_id','=', $user->id)->get();
+        $subtotal = 0;
+        $deliveryFee = 15;
+        $data = array();
+        foreach ($cartItems as $item) {
+            $subtotal += $item->quantity * $item->product->price;
+        }
     
-        return view('bag', compact('cartItems'));
+        $total = $subtotal + $deliveryFee;
+    
+        return view('bag', compact('cartItems', 'subtotal', 'total', 'deliveryFee','data'));
+    }
+     public function info(Request $request)
+    { 
+        $total = $request->query('total');
+        $cartitem = $request->query('cartItem');
+    
+        return view('info', ['total' => $total, 'cartItem' => $cartitem]);
     }
 }

@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="/css/bag.css">
     <link rel="stylesheet" href="/css/landing_page.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -18,6 +19,7 @@
         <h1>Shopping Cart</h1>
         <div class="project">
             <div class="shop">
+                <form action="">
                 @foreach ($cartItems as $cartItem)
                 <div class="box">
                     <img src="/products/{{ $cartItem->product->image }}" alt="" >
@@ -31,8 +33,12 @@
                         <p class="btn-area">
                             <button class="" href="/cart/{id}" style="background: none; border:none;"><i class="fa fa-trash" style="color:white;"></i><span class="btn2">Remove</span></button>
                         </p>
-
                             </form>
+                            @php
+                                $arr = ["id"=>$cartItem->product->id, "quantity"=>$cartItem->quantity];
+                                    
+                                array_push($data, $arr);
+                            @endphp
                     </div>
                 </div>
                 @endforeach
@@ -64,15 +70,14 @@
                 </div> --}}
             </div>
                 <div class="right-bar">
-                    <p><span>Subtotal</span>$120<span></span></p>
+                    <p><span>Subtotal</span>${{ $subtotal }}<span></span></p>
                     <hr>
-                    <p><span>Shipping</span><span>$15</span></p>
+                    <p><span>Shipping</span><span>${{ $deliveryFee }}</span></p>
                     <hr>
-                    <p><span>Total</span><span></span>$135</p>
-                    <a href="#" id="btn1">Buy with card </a>
-                    <a href="#" id="btn2">cash on delivery</a>
+                    <p><span>Total</span><span></span>${{ $total }}</p>
+                    <a href="{{route('info', ['total' => $total, 'cartItem' =>$data])}}" id="btn1"><i class="fa-solid fa-cart-shopping"></i>checkout</a>
                 </div>
-                
+            </form>
 
             </div>
         </div>

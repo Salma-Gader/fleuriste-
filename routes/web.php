@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Category;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +67,9 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 Route::get('/categories/{category}/edit', 'CategoryController@edit')->name('dashboard.categories.edit');
 Route::put('/categories/{category}', 'CategoryController@update')->name('dashboard.categories.update');
 
-   
+Route::get('/statistique', function () {
+    return view('dashboard.statistique.statistique');
+})->name('statistique'); 
  
 
 });
@@ -75,6 +78,8 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/show-products/{product}',[ProductController::class, 'show'])->name('showproducts');
 Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart.delete');
 Route::get('/bag', [CartController::class, 'show'])->name('bag');
+Route::get('/info', [CartController::class, 'info'])->name('info');
+Route::post('/orders/create', [OrderController::class, 'create'])->name('orders.create');
 
 
 
