@@ -6,50 +6,35 @@
           <div class="col-10 col-md-9 col-lg-10 py-2">
         <div class="container">
             <!-- Minimal statistics section start -->
-        <div class="row ">
-            <div class="col-12 mt-3 mb-1">
-            <h4 class="text-uppercase">Statistics</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-xl-3 col-sm-10 col-12 mb-2 p-0">
-                <div class="card row">
-                    <div class="text-center">
-                        <i class="bi bi-list-ul"></i>
-                        <h3>156</h3>
-                        <p>Comments</p>
+            <div class="row ">
+                <div class="col-12 mt-3 mb-1">
+                <h4 class="text-uppercase">Statistics</h4>
+                </div>
+            
+            <div class="d-flex flex-row justify-content-around">
+                <div class="card" style="width: 18rem;height:12rem;">
+                    <div class="card-body">
+                      <img src="/img/categories.png" alt="" style="width: 3rem; height:3rem;" class="card-title">
+                      <h5 class="card-subtitle mb-2">CATEGORIES</h5>
+                      <p class="card-text">{{$CategorytCount}}</p>
                     </div>
+                  </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="/img/gift.png" alt="" style="width: 3rem; height:3rem;" class="card-title">
+                      <h6 class="card-subtitle mb-2">PRODUCTS</h6>
+                      <p class=" font-weight-bold">{{$ProductCount}}</p>
+                    </div>
+                  </div>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="/img/shopping-bag.png" alt="" style="width: 3rem; height:3rem;" class="card-title">
+                      <h6 class="card-subtitle mb-2">ORDERS</h6>
+                      <p class="card-text">{{$OrderCount}}</p>
+                    </div>
+                  </div>
                 </div>
             </div>
-            <div class="col-md-3 col-xl-3 col-sm-10 col-12 mb-2 p-0">
-                <div class="card row">
-                    <div class="text-center">
-                        <i class="bi bi-list-ul"></i>
-                        <h3>156</h3>
-                        <p>Comments</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xl-3 col-sm-10 col-12 mb-2 p-0">
-                <div class="card row">
-                    <div class="text-center">
-                        <i class="bi bi-list-ul"></i>
-                        <h3>156</h3>
-                        <p>Comments</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xl-3 col-sm-10 col-12 mb-2 p-0">
-                <div class="card row">
-                    <div class="text-center">
-                        <i class="bi bi-list-ul"></i>
-                        <h3>156</h3>
-                        <p>Comments</p>
-                    </div>
-                </div>
-            </div>
-                
-        </div>
 
 
         <!-- // Minimal statistics section end -->

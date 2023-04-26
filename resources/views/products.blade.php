@@ -24,7 +24,7 @@
         <div class="row">
             <img src="/products/{{$product->image}}" alt="" style="height: 25rem;  !important;">
             <h4>{{$product->name}}</h4>
-            <h5>{{$product->price}}</h5>
+            <h5>${{$product->price}}</h5>
             <div class="bbtn">
                 {{-- <a href="#" class="add-to-cart" data-product-id="{{ $product->id }}">Add to cart</a> --}}
                 <a href="{{route('showproducts',$product->id)}}" class="add-to-cart" >Add to cart</a>

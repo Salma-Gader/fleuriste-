@@ -16,12 +16,12 @@
             </li>
             <hr>
             <li>
-                <a href="#" class="nav-link px-0 align-middle text-dark">
+                <a href="{{route('orders.index')}}" class="nav-link px-0 align-middle text-dark">
                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
             </li>
             <hr>
             <li>
-                <a href="/all-categories" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-dark">
+                <a href="{{route('getcategories')}}" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-dark">
                     <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline"><!-- Add category button -->
                         <button id="add-category-button">Add Category</button>
                         

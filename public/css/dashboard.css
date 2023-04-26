@@ -1,3 +1,22 @@
 .nn {
     color: white;
 }
+
+.container h4 {
+    margin: 3rem;
+    font-size: larger;
+}
+
+.card {
+    text-align: center;
+}
+
+.card-title {
+    margin-bottom: 20px !important;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

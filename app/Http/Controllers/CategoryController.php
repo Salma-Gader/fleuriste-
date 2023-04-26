@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Order;
 use App\Http\Requests\StoreCategoryRequest;
 
 class CategoryController extends Controller
@@ -15,8 +17,11 @@ class CategoryController extends Controller
      */
     public function getcategories()
     { 
+        $ProductCount=Product::all()->count();
+        $CategorytCount=Category::all()->count();
+        $OrderCount=Order::all()->count();
         $categories=Category::all();
-        return view('dashboard.categories.index',compact('categories'));
+        return view('dashboard.categories.index',compact('categories','ProductCount','CategorytCount','OrderCount'));
     }
 
 

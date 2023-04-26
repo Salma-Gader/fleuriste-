@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Order;
 use App\Http\Requests\StoreProductRequest;
 
 class ProductController extends Controller
@@ -14,9 +15,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {       
+        $ProductCount=Product::all()->count();
+        $CategorytCount=Category::all()->count();
+        $OrderCount=Order::all()->count();
         $products = Product::with('category')->get();
-        return view('dashboard.products.index',compact('products'));
+        return view('dashboard.products.index',compact('products','ProductCount','CategorytCount','OrderCount'));
     }
 
     /**
@@ -120,7 +124,7 @@ class ProductController extends Controller
 
         $productcategory = $category->products;
 
-        return view('products', compact('productcategory'));
+    return view('products', compact('productcategory'));
     }
 
 }

@@ -30,7 +30,7 @@
               </div>
               <input type="text" type="hidden" value="{{$total}}" name="total_price" hidden>
               {{-- @foreach ($cartItem as $item) --}}
-              <input  type="hidden" value="{{json_encode($cartItem)}}" name="product_ids[]" >
+              {{-- <input  type="hidden" value="{{json_encode($cartItem)}}" name="product_ids[]" > --}}
 
 
 
@@ -44,9 +44,7 @@
 
         </div>
     </div>
- 
-
-    
+     
     <!--js link-->
 <script src="/js/landing_page.js"></script>
 </body>

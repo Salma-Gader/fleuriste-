@@ -29,7 +29,7 @@
             <label for="">Quantity</label>
                 @csrf
             <input type="hidden" name="product_id" value="{{ $product->id }}">
-            <input  name="quantity" id="input" type="number">
+            <input  name="quantity" min="0" max="{{ $product->quantity }}" id="input" type="number">
             <button type="submit" class="btn btn-default cart">Add to cart</button>
             </form>
         </div>

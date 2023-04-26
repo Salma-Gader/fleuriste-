@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="/css/createCategory.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -46,6 +48,7 @@
         @stack('modals')
 
         @livewireScripts
+
         <script src="{{url('js/dashboard.js')}}"></script>
         <script src="{{url('js/popUp.js')}}"></script>
     </body>

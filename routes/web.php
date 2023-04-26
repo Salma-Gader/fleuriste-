@@ -67,6 +67,12 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])-
 Route::get('/categories/{category}/edit', 'CategoryController@edit')->name('dashboard.categories.edit');
 Route::put('/categories/{category}', 'CategoryController@update')->name('dashboard.categories.update');
 
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('orders/{order_id}', 'OrderController@show')->name('orders.show');
+Route::put('orders/{order_id}', 'OrderController@editOrderStatus')->name('orders.update');
+
+
+
 Route::get('/statistique', function () {
     return view('dashboard.statistique.statistique');
 })->name('statistique'); 

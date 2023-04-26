@@ -19,7 +19,7 @@ return new class extends Migration
             $table->double('price');
             $table->integer('quantity');
             $table->longText('description');
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id')->unsigned()->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('image');
             $table->softDeletes();

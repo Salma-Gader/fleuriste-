@@ -35,5 +35,5 @@
         </div>
         
         <button type="submit">Submit</button>
-      </for>
+      </form>
     </x-app-layout>

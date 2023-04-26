@@ -14,22 +14,30 @@ class CartController extends Controller
     {
         $user = Auth::id();
         $quantity = $request->input('quantity');
-        $quantity = $request->input('product_id');
+        $product = Product::findOrFail($request->input('product_id'));
+    
+        $item = Cart::where('product_id', $product->id)->first();
+        
+        $request->validate([
 
-        $item = Cart::where('product_id', $request->product_id)->first();
+                'quantity' => "required|integer|min:1|max:" . ($product->quantity),
 
+        ]);
+    
         if ($item) {
-            $item->update(['quantity' => $request->input('quantity')]);
+            $item->update(['quantity' => $quantity]);
         } else {
             Cart::create([
                 'user_id' => $user,
-                'product_id' => $request->product_id,
-                'quantity' => $request->product_id,
+                'product_id' => $product->id,
+                'quantity' => $quantity,
             ]);
         }
-
-        return redirect()->route('showproducts',$request->product_id)->with('success', 'Item added to cart.');
+    
+        return redirect()->route('showproducts', $product->id)->with('success', 'Item added to cart.');
     }
+
+
         public function delete(Request $request)
     {
             $cartItem = Cart::where('id', $request->id)->first();
