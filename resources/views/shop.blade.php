@@ -65,6 +65,7 @@
      <div class="end-text">
         <p>© late 2023 Salma Gader All Rights Reserved.</p>
      </div>
+     @include('sweetalert::alert')
     <!--js link-->
     <script src="/js/landing_page.js"></script>
 </body>

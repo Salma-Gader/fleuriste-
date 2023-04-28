@@ -44,7 +44,8 @@
 
         </div>
     </div>
-     
+    @include('sweetalert::alert')
+
     <!--js link-->
 <script src="/js/landing_page.js"></script>
 </body>

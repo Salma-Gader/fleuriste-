@@ -27,7 +27,7 @@
             <h5>${{$product->price}}</h5>
             <div class="bbtn">
                 {{-- <a href="#" class="add-to-cart" data-product-id="{{ $product->id }}">Add to cart</a> --}}
-                <a href="{{route('showproducts',$product->id)}}" class="add-to-cart" >Add to cart</a>
+                <a href="{{route('showproducts',$product->id)}}" class="add-to-cart" >View product</a>
             </div>
         </div>
         @endforeach

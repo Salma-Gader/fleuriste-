@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Support\Facades\Gate;
+use App\Models\User;
+
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
@@ -39,5 +42,11 @@ class AppServiceProvider extends ServiceProvider
             $carts = Cart::all();
             $view->with('carts', $carts);
         });
+
+        // Should return TRUE or FALSE
+        Gate::define('admin_area', function(User $user) {
+            return $user->is_admin == 1;
+        });
+    
     }
 }

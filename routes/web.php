@@ -49,9 +49,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
+    Route::get('/landing_page', function () {
+        return view('landing_page');
+    });
     Route::post('/save-product',[ProductController::class, 'store'])->name('products.store');
     Route::get('/create-product',[ProductController::class, 'create'])->name('products.create');
-    Route::get('/dashboard',[ProductController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard',[ProductController::class, 'index'])->name('dashboard')->middleware('can:admin_area');
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('deleteproducts');
     Route::get('/products/{product}/edit', 'ProductController@edit')->name('dashboard.products.edit');
     Route::put('/products/{product}', 'ProductController@update')->name('dashboard.products.update');

@@ -54,3 +54,19 @@ function getOrder(order_id) {
         }
     });
 }
+
+function getProduct(product_id) {
+    let inputeStatus = $("#ProductInput_id");
+    inputeStatus.val("Loding...")
+
+    $.ajax({
+        url: '/products/' + product_id,
+        type: 'GET',
+        success: function(data) {
+            inputeStatus.val(data.order.status);
+        }
+    });
+}
+$(document).ready(function() {
+    $('#example').DataTable();
+});

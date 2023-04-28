@@ -1,6 +1,9 @@
 
 <x-app-layout>
   <x-validation-errors/>
+  <div class="row">
+  @include('dashboard.sidebar')
+  <div class="col-10 col-md-9 col-lg-10 py-2">
   <form action="{{ route('products.store')}}" method="POST" enctype="multipart/form-data">  
     @csrf
     {{-- @method('POST       ') --}}
@@ -40,4 +43,6 @@
         
         <button type="submit" name="save" class="btn btn-primary buttonedit ml-2">Save</button>
       </form>
+    </div>
+  </div>
     </x-app-layout>

@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderController extends Controller
 {
@@ -42,7 +43,7 @@ class OrderController extends Controller
         $order->phone = $phone;
         $order->address = $adresse;
         $order->user_id = $user_id;
-    $order->save();
+        $order->save();
 //   return $product_ids;
           for($i = 0; $i < count($cartItems); $i++) {
             $orderDetail = new OrderDetail;
@@ -56,8 +57,9 @@ class OrderController extends Controller
         }
         Cart::where('user_id', $user_id)->delete();
 
-
-        return view('landing_page');
+        //ALERT
+        Alert::success('order added ',' Your order has been added successfully');
+        return view('shop');
     }
 
         public function editOrderStatus(Request $request, $order_id)

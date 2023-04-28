@@ -53,7 +53,7 @@ header {
 .navbar a {
     color: var(--text-color);
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     margin: 10px 22px;
     transition: 0.5s ease-in-out;
     padding: 5px;
@@ -135,14 +135,14 @@ section {
 }
 
 .btn {
-    padding: 20px 35px;
+    padding: 20px 50px;
     border-style: solid;
     border-color: #434343;
     color: #434343;
     justify-content: center;
     margin-left: 17rem;
     font-weight: 800;
-    font-size: 14px;
+    font-size: 17px;
     text-transform: uppercase;
     transition: all .50 ease;
 }
@@ -344,4 +344,13 @@ img {
             font-size: medium;
         }
     }
+}
+
+#myVideo {
+    width: 100%;
+    height: auto;
+}
+
+#login {
+    background-color: #e55472 !important;
 }

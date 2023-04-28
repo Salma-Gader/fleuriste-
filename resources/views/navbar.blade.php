@@ -1,7 +1,7 @@
   
     <header>
         <a href="{{route('landing_page')}}">
-            <h1 class="logo">logo</h1>
+            <h1 class="logo"><img src="/img/logo2.png" alt="" style="width: 10rem;"></h1>
         </a>
         <ul class="navbar">
             <li><a href="{{route('landing_page')}}">HOME</a></li>
@@ -10,8 +10,14 @@
 
             @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                
                 @auth
+                @can('admin_area')
                     <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">DASHBOARD</a>
+                @endcan
+                <x-dropdown-link href="{{ route('profile.show') }}">
+                    {{ __('PROFILE') }}
+                </x-dropdown-link>
                 @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">LOG IN</a>
 

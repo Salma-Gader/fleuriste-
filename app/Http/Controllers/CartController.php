@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -33,7 +34,8 @@ class CartController extends Controller
                 'quantity' => $quantity,
             ]);
         }
-    
+        Alert::success('product added ',' Your product has been added successfully');
+        
         return redirect()->route('showproducts', $product->id)->with('success', 'Item added to cart.');
     }
 
@@ -50,7 +52,9 @@ class CartController extends Controller
     }
     public function show()
     {
+        
         $user = Auth::user();
+        if($user){
         $cartItems = Cart::with('product')->where('user_id','=', $user->id)->get();
         $subtotal = 0;
         $deliveryFee = 15;
@@ -61,7 +65,12 @@ class CartController extends Controller
     
         $total = $subtotal + $deliveryFee;
     
-        return view('bag', compact('cartItems', 'subtotal', 'total', 'deliveryFee','data'));
+        return view('bag', compact('cartItems', 'subtotal', 'total', 'deliveryFee','data'));}
+        else{
+            Alert::warning('Confirm Deletion', 'Are you sure you want to delete this product?');
+        return redirect()->back()->with('success', 'Order status updated successfully!');
+
+        }
     }
      public function info(Request $request)
     { 

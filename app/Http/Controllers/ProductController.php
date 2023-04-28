@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Order;
 use App\Http\Requests\StoreProductRequest;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ProductController extends Controller
 {
@@ -112,9 +114,18 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
-    {
-        $product->delete();
-        return redirect()->route('dashboard')->with('success','Product has been deleted successfully');
+    {  
+        Alert::warning('Confirm Deletion', 'Are you sure you want to delete this product?')
+            ->showConfirmButton('Yes, delete it!')
+            ->showCancelButton('No, cancel')
+            ->reverseButtons();
+    
+        if (request('confirm_action') == 'yes') {
+            $product->delete();
+            return redirect()->route('dashboard')->with('success','Product has been deleted successfully');
+        } else {
+            return redirect()->route('dashboard')->with('info','Deletion has been cancelled');
+        }
     }
     
     public function showByCategory($id)
@@ -126,5 +137,7 @@ class ProductController extends Controller
 
     return view('products', compact('productcategory'));
     }
+
+  
 
 }

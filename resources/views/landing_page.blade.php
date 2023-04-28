@@ -16,7 +16,7 @@
     <section class="home">
         <div class="home-text">
             <h1 class="title">FIND THE PERFECT GIFT FOR EVERY OCCASION <br>AT FLEURISTE</h1>
-            <a href="{{route('shop')}}" class="btn">Pick a Bouquet</a>
+            <a href="{{route('shop')}}" class="btn">Pick a Gift</a>
         </div>
     </section>
     <!--about section-->
@@ -28,6 +28,12 @@
         </div>
         <img src="/img/about2.jpg" alt="About Us">
        </div> 
+    </section>
+    <section>
+        <video autoplay muted loop id="myVideo">
+            <source src="/img/home.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
     </section>
     <!--contact section-->
     <section class="contact">
@@ -66,11 +72,14 @@
 
         </div>
     </section>
+
      <!--scroll-->
      <a href="#" class="scroll-top"><i class='bx bx-chevrons-up' style='color:#ffffff'></i></a>
      <div class="end-text">
         <p>© late 2023 Salma Gader All Rights Reserved.</p>
      </div>
+     @include('sweetalert::alert')
+
 <!--js link-->
 <script src="/js/landing_page.js"></script>
 </body>
